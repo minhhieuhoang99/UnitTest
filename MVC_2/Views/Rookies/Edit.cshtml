@@ -1,0 +1,20 @@
+﻿@model MVC_2.Models.PersonModel
+
+@{
+    ViewData["Title"] = $"Editing {Model.firstName}{Model.lastName}";
+}
+
+<p class="h3">You're editing: <strong>@Model.firstName @Model.lastName</strong></p>
+<hr />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+
+    <partial name="_Input" model="Model" />
+
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn  btn-primary" />
+        <a asp-action="Details" asp-route-id="@Model.id" class="btn  btn-info">Cancel</a>
+        <a asp-action="Index" class="btn  btn-secondary">Back to List</a>
+    </div>
+</form>

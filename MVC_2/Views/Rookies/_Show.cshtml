@@ -1,0 +1,25 @@
+﻿@model MVC_2.Models.PersonModel
+<div>
+    <p class="h3">@Model.firstName @Model.lastName</p>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2"><label asp-for="firstName"></label></dt>
+        <dd class="col-sm-10">@Model.firstName</dd>
+        <dt class="col-sm-2"><label asp-for="lastName"></label></dt>
+        <dd class="col-sm-10">@Model.lastName</dd>
+        <dt class="col-sm-2"><label asp-for="dateOfBirth"></label></dt>
+        <dd class="col-sm-10">@Model.dateOfBirth</dd>
+        <dt class="col-sm-2"><label asp-for="gender"></label></dt>
+        <dd class="col-sm-10">@Model.gender</dd>
+        <dt class="col-sm-2"><label asp-for="phoneNumber"></label></dt>
+        <dd class="col-sm-10">@Model.phoneNumber</dd>
+        <dt class="col-sm-2"><label asp-for="birthPlace"></label></dt>
+        <dd class="col-sm-10">@Model.birthPlace</dd>
+        <dt class="col-sm-2"><label asp-for="age"></label></dt>
+        <dd class="col-sm-10">@Model.age</dd>
+        <dt class="col-sm-2"><label asp-for="isGraduated"></label></dt>
+        <dd class="col-sm-10">@Model.isGraduated</dd>
+        <dt class="col-sm-2"><label asp-for="email"></label></dt>
+        <dd class="col-sm-10">@Model.email</dd>
+    </dl>
+</div>

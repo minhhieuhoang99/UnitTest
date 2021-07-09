@@ -1,0 +1,19 @@
+﻿@model MVC_2.Models.PersonModel
+
+@{
+    ViewData["Title"] = "Create a new person";
+}
+
+<p class="h3">Add a new person</p>
+<hr />
+
+<form asp-action="Create" enctype="multipart/form-data">
+
+    <partial name="_Input" model="Model" />
+
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary " /> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>

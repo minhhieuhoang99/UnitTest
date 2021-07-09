@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Http    
+@inject IHttpContextAccessor httpContextAccessor   
+@model IEnumerable<MVC_2.Models.PersonModel>
+
+@{
+    ViewData["Title"] = $"Person list ({Model.Count()} items)";
+}
+
+<p class="h3">Person List</p>
+
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</div>
+
+<table  class="table table-striped  table-hover table-dark"  style= "border-radius : 15px"  >
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.id)</th>
+            <th>@Html.DisplayNameFor(model => model.firstName)</th>
+            <th>@Html.DisplayNameFor(model => model.lastName)</th>
+            <th>@Html.DisplayNameFor(model => model.dateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.gender)</th>
+            <th>@Html.DisplayNameFor(model => model.phoneNumber)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>@item.id</td>
+                <td><a asp-route-id="@item.id" asp-action="Details">@item.firstName</a></td>
+                <td>@item.lastName</td>
+                <td>@item.dateOfBirth</td>
+                <td>@item.gender</td>
+                <td>@item.phoneNumber</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info">Details</a>
+                    @* <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Delete</a> *@
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["personDelete"] != null)
+{
+ <p class="alert alert-success" id="successMessage">@TempData["personDelete"] @ViewData["personName"] </p>
+ <p>@httpContextAccessor.HttpContext.Session.GetString("person")   </p>
+}
